@@ -4,3 +4,4 @@
 /frontend/dist
 /backend/.env
 /frontend/.env
+/backend/wrangler.toml
