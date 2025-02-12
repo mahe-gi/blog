@@ -1,0 +1,14 @@
+/frontend/node_modules
+/frontend/dist
+/frontend/.env
+/backend/wrangler.toml
+/backend/.env
+/backend/node_modules
+/backend/dist
+/backend/.wrangler
+/backend/.dev.vars
+/backend/.DS_Store
+.DS_Store
+# Change them to your taste:
+backend/package-lock.json
+frontend/package-lock.json
