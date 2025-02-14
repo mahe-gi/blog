@@ -4,6 +4,7 @@
     "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
+    "@mahe-npm/common": "^1.0.2",
     "@prisma/client": "^6.3.1",
     "@prisma/extension-accelerate": "^1.2.1",
     "hono": "^4.0.8",
