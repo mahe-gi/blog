@@ -13,9 +13,7 @@ export const userRouter = new Hono<{
 
 userRouter.post("/signup", async (c) => {
   const reqData = await c.req.json();
-  console.log(reqData);
   const { success } = signupInput.safeParse(reqData);
-
   if (!success) {
     c.status(400);
     return c.json({ message: "Invalid input" });
@@ -31,9 +29,12 @@ userRouter.post("/signup", async (c) => {
         name: reqData.name,
       },
     });
+    console.log(user);
     const token = await sign({ id: user.id }, c.env.JWT_SECRET);
+    c.status(200);
     return c.json({ token });
   } catch (e) {
+    c.status(400);
     return c.text("already exists or invalid");
   }
 });

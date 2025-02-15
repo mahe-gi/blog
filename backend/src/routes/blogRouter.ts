@@ -104,7 +104,7 @@ blogRouter.get("/:id", async (c) => {
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());
   const id = c.req.param("id");
-  console.log(id);
+
   const blog = await prisma.blog.findUnique({
     where: {
       id: parseInt(id),
