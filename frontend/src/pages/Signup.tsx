@@ -23,7 +23,7 @@ function Signup() {
         postSignupData
       );
       const token = await response.data.token;
-      navigate(`/blog/`);
+      navigate(`/blogs`);
       if (token) {
         localStorage.setItem("token", "Bearer " + token);
       }

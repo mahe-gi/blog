@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import axios from "axios";
 import { Button } from "../components/Button";
 import { LabeledInput } from "../components/LabeledInput";
+import { BACKEND_URL } from "../config";
 
 function Signin() {
   const [signinInputData, setsigninInputData] = useState<SigninInput>({
@@ -17,11 +18,13 @@ function Signin() {
   async function handlePostRequest() {
     try {
       const response = await axios.post(
-        "http://localhost:8787/api/v1/user/signin",
+        `${BACKEND_URL}/api/v1/user/signin`,
         signinInputData
       );
       if (response.status === 200) {
-        navigate("/blog/1");
+        const token = response.data.token;
+        localStorage.setItem("token", "Bearer " + token);
+        navigate("/blogs");
       }
     } catch (error) {
       console.log(error);
