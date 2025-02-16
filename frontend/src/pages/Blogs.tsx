@@ -17,7 +17,6 @@ function Blogs() {
       <div className="flex justify-center">
         <div className=" md:w-1/2 w-full">
           {blogs.map((blogs) => {
-            console.log(blogs);
             return (
               <BlogCard
                 id={blogs.id}
