@@ -14,7 +14,7 @@ function Blog() {
 
   return (
     <div>
-      <Appbar />
+      <Appbar val={true} />
       <div className=" grid grid-cols-1 lg:grid-cols-2 grid-flow-col w-screen h-screen  p-4 lg:p-10 gap-4 ">
         <div className=" h-full col-span-8 px-6 ">
           <div>

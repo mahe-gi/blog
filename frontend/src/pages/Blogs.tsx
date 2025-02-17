@@ -12,7 +12,7 @@ function Blogs() {
   return (
     <div>
       <div>
-        <Appbar />
+        <Appbar val={false} />
       </div>
       <div className="flex justify-center">
         <div className=" md:w-1/2 w-full">
