@@ -7,7 +7,6 @@ import axios from "axios";
 import { Button } from "../components/Button";
 import { LabeledInput } from "../components/LabeledInput";
 import { BACKEND_URL } from "../config";
-
 function Signin() {
   const [signinInputData, setsigninInputData] = useState<SigninInput>({
     username: "",

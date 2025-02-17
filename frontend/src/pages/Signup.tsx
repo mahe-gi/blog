@@ -7,7 +7,6 @@ import { Link } from "react-router";
 import { LabeledInput } from "../components/LabeledInput";
 import { useNavigate } from "react-router";
 import { BACKEND_URL } from "../config";
-
 function Signup() {
   const [postSignupData, setPostSignupData] = useState<SignupInput>({
     username: "",
