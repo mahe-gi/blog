@@ -29,7 +29,6 @@ userRouter.post("/signup", async (c) => {
         name: reqData.name,
       },
     });
-    console.log(user);
     const token = await sign({ id: user.id }, c.env.JWT_SECRET);
     c.status(200);
     return c.json({ token });

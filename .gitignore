@@ -12,3 +12,4 @@
 # Change them to your taste:
 backend/package-lock.json
 frontend/package-lock.json
+/frontend/src/config.ts
