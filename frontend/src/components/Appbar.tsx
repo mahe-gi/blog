@@ -1,4 +1,4 @@
-import { Avatar } from "./BlogCard";
+import { Avatar } from "./BlogsCard";
 
 export function Appbar() {
   return (
