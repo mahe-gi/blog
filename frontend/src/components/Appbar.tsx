@@ -8,7 +8,7 @@ interface AppbarProps {
 export function Appbar({ val }: AppbarProps) {
   return (
     <div className=" flex justify-between items-center px-10 border-b-1 border-gray-300 py-2">
-      <Link to="/">
+      <Link to="/blogs">
         <div className=" cursor-pointer font-stretch-50% text-2xl hover:opacity-50">
           101dev
         </div>
