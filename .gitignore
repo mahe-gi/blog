@@ -8,8 +8,11 @@
 /backend/.dev.vars
 /backend/.DS_Store
 .DS_Store
-/common
 # Change them to your taste:
 backend/package-lock.json
 frontend/package-lock.json
 /frontend/src/config.ts
+/common/dist
+/common/node_modules
+/backend/.env.wrangler
+/backend/.wrangler
