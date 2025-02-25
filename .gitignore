@@ -16,3 +16,4 @@ frontend/package-lock.json
 /common/node_modules
 /backend/.env.wrangler
 /backend/.wrangler
+/.idea

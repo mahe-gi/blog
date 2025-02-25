@@ -9,7 +9,7 @@ function Landing() {
   return (
     <div className=" flex items-center justify-center h-screen w-screen">
       <div>
-        <div>Redirecting ...</div>
+        <div>Redirecting ... to signup /login /dashboard</div>
       </div>
     </div>
   );
