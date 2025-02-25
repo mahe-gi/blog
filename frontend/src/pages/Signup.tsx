@@ -28,6 +28,7 @@ function Signup() {
       }
     } catch (error) {
       console.error("Signup failed:", error);
+      alert("Signup failed");
     }
   }
 
