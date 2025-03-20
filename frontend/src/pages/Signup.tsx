@@ -7,6 +7,7 @@ import { Link } from "react-router";
 import { LabeledInput } from "../components/LabeledInput";
 import { useNavigate } from "react-router";
 import { BACKEND_URL } from "../config";
+import { Bounce, toast, ToastContainer } from "react-toastify";
 function Signup() {
   const [postSignupData, setPostSignupData] = useState<SignupInput>({
     username: "",
@@ -16,19 +17,50 @@ function Signup() {
   const navigate = useNavigate();
 
   async function handlePostSignup() {
+   
     try {
+      
       const response = await axios.post(
         `${BACKEND_URL}/api/v1/user/signup`,
         postSignupData
       );
       const token = await response.data.token;
-      navigate(`/blogs`);
+     
+     if(token){
+      toast.success('Success !', {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        });
+
+     }
+      setTimeout(() => {
+        
+        navigate(`/blogs`);
+      }, 500);
+      
+    
       if (token) {
         localStorage.setItem("token", "Bearer " + token);
       }
     } catch (error) {
-      console.error("Signup failed:", error);
-      alert("Signup failed");
+      toast.error('Something went wrong !', {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+        });
     }
   }
 
@@ -80,6 +112,19 @@ function Signup() {
                   }}
                 />
                 <Button sendRequest={handlePostSignup} type="signup" />
+                <ToastContainer
+                  position="bottom-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick={false}
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="light"
+                  transition={Bounce}
+                />
               </div>
             </form>
           </div>

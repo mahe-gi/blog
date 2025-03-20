@@ -8,7 +8,7 @@ export const Button = ({ sendRequest, type }: ButtonProps) => {
     <div>
       <button
         onClick={sendRequest}
-        className=" w-full bg-blue-400 text-white p-2 rounded-md"
+        className=" w-full bg-blue-400 text-white p-2 rounded-md cursor-pointer"
         type="button"
       >
         {type === "signup" ? "Sign up" : "Sign in"}

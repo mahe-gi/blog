@@ -7,6 +7,7 @@ import axios from "axios";
 import { Button } from "../components/Button";
 import { LabeledInput } from "../components/LabeledInput";
 import { BACKEND_URL } from "../config";
+import { Bounce, toast, ToastContainer } from "react-toastify";
 function Signin() {
   const [signinInputData, setsigninInputData] = useState<SigninInput>({
     username: "",
@@ -21,11 +22,45 @@ function Signin() {
         signinInputData
       );
       if (response.status === 200) {
+
+
+         //toster notification
+         
+        toast.success('Welcome back !', {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Bounce,
+          });
         const token = response.data.token;
         localStorage.setItem("token", "Bearer " + token);
+
+       
+       
+
+          // artificial delay for toster notification
+       setTimeout(()=>{
         navigate("/blogs");
+       },500)
       }
+
     } catch (error) {
+      toast.error('Invalid credentials', {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+        });
       console.log(error);
     }
   }
@@ -67,6 +102,20 @@ function Signin() {
                   }}
                 />
                 <Button sendRequest={handlePostRequest} type="signin" />
+                {/* toaster container */}
+                <ToastContainer
+position="bottom-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick={false}
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+transition={Bounce}
+/>
               </div>
             </form>
           </div>

@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate";
-import { sign } from "hono/jwt";
+import { sign,verify } from "hono/jwt";
 import { Hono } from "hono";
 import { signinInput, signupInput } from "@mahe-npm/common";
 
@@ -11,7 +11,9 @@ export const userRouter = new Hono<{
   };
 }>();
 
+
 userRouter.post("/signup", async (c) => {
+
   const reqData = await c.req.json();
   const { success } = signupInput.safeParse(reqData);
   if (!success) {
@@ -67,3 +69,34 @@ userRouter.post("/signin", async (c) => {
   c.status(200);
   return c.json({ token });
 });
+userRouter.post("/me", async (c) => {
+  const token = c.req.header("Authorization");
+  const originalToken = token?.split(" ")[1];
+  console.log(originalToken)
+  if (!originalToken) {
+    c.status(401);
+    return c.json({ err: "token not found" });
+  }
+
+  const { id } = await verify(originalToken, c.env.JWT_SECRET);
+
+
+
+  if (!id) {
+    c.status(401);
+    return c.json({ err: "Invalid token" });
+  }
+
+  
+  c.status(200);
+  return c.json({
+    id:id
+  })
+
+
+
+
+
+
+}
+);
