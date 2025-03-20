@@ -72,7 +72,6 @@ userRouter.post("/signin", async (c) => {
 userRouter.post("/me", async (c) => {
   const token = c.req.header("Authorization");
   const originalToken = token?.split(" ")[1];
-  console.log(originalToken)
   if (!originalToken) {
     c.status(401);
     return c.json({ err: "token not found" });

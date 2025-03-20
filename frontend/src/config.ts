@@ -1,4 +1,4 @@
-export const BACKEND_URL = "http://localhost:8787";
+export const BACKEND_URL = "https://backend_cloudflare_worker.chmahesh997.workers.dev";
 
-  // "https://backend_cloudflare_worker.chmahesh997.workers.dev";
+
 // use urs backend url
