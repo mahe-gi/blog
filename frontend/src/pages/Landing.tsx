@@ -6,11 +6,10 @@ import { Bounce, toast, ToastContainer } from "react-toastify";
 
 function Landing() {
   const navigate = useNavigate();
-  console.log(BACKEND_URL)
+
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log(token)
     if (!token) {
       toast.error('please Login !', {
         position: "bottom-right",

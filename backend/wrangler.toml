@@ -2,8 +2,8 @@ name = "backend_cloudflare_worker"
 compatibility_date = "2023-12-01"
 
 [vars]
-DATABASE_URL=""
-JWT_SECRET=""
+DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiOTI4YWMwNWYtNWEyZC00ZjRkLTlmZTYtZWUzNjNkMGNjOTg1IiwidGVuYW50X2lkIjoiZjUyMGVlYmQ0YWJjNzFkOWMzMmVjNTVjMDkwMTk4NDg5ZGFjZTI5ZmY4ZDZlNDY4YjJkZmMyYjZlN2U3MWQwZCIsImludGVybmFsX3NlY3JldCI6ImMxMjNlOWQ5LTVkM2UtNDRhMC05ZGY3LTJlYTMwN2I3M2ZlZiJ9.fGCF9UH7IgvfJl9nk5kOBBkb9qjsvUEz7RiepY89hnM"
+JWT_SECRET="mahesh"
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
 # id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"

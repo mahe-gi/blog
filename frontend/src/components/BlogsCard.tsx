@@ -23,18 +23,13 @@ function BlogCard({
             <Avatar authorName={authorName} />
           </div>
           <div className=" flex  capitalize items-center">
-            <div className=" pl-1 text-sm font-extralight">{authorName} </div>
-            <div className=" flex  text-sm items-center px-2">
-              <Circle />
-            </div>
-            <div className=" text-sm   font-thin text-slate-400">
-              {publishedDate}
-            </div>
+            <div className=" pl-1 text-sm font-light">{authorName} </div>
           </div>
+          {/* <div>{publishedDate}</div> */}
         </div>
 
-        <div className=" text-2xl font-bold capitalize pt-2">{title}</div>
-        <div className=" text-slate-500 font-light">
+        <div className=" text-2xl font-bold  capitalize pt-2">{title}</div>
+        <div className="font-light text-[#6b6b6b] overflow-hidden text-ellipsis break-words ">
           {content.length > 200
             ? content.slice(0, 200) + "..."
             : content.slice(0, 200)}
@@ -59,10 +54,10 @@ export function Avatar({
   return (
     <div>
       <div
-        className="relative inline-flex items-center justify-center w-6 h-6 overflow-hidden bg-sky-300  rounded-full"
+        className="relative inline-flex items-center justify-center w-5 h-5 overflow-hidden bg-sky-300  rounded-full"
         style={{ width: size, height: size }}
       >
-        <span className="font-medium text-gray-600 dark:text-gray-300 capitalize">
+        <span className="font-medium text-gray-600 dark:text-gray-300  capitalize">
           {authorName[0]}
         </span>
       </div>

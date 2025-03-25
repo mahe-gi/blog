@@ -21,7 +21,6 @@ function Publish() {
         },
       }
     );
-    console.log(response.data);
 
     if (response.data.id) {
       navigate(`/blog/${response.data.id}`);
@@ -39,18 +38,18 @@ function Publish() {
             }}
             type="text"
             placeholder="Title"
-            className=" rounded-sm input input-bordered w-full focus:outline-none pb-6 bg-slate-50 text-left p-4 font-bold "
+            className=" rounded-sm input input-bordered w-full focus:outline-none pb-6 text-[#6b6b6b] text-4xl font-light text-left p-4 "
           />
           <textarea
             onChange={(e) => {
               setContent(e.target.value);
             }}
-            className=" rounded-sm textarea textarea-bordered h-96 w-full focus:outline-none bg-slate-50 text-left p-4 font-medium"
-            placeholder="Content"
+            className=" rounded-sm textarea textarea-bordered h-96 w-full focus:outline-none font-light text-[#6b6b6b] text-left p-4  "
+            placeholder="Tell your story ..."
           ></textarea>
           <button
             onClick={handleBlogPublish}
-            className="btn cursor-pointer  bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+            className="btn cursor-pointer  bg-[#c1c1c1] hover:bg-[#a5a2a2] text-white font-light py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
           >
             Publish
           </button>
