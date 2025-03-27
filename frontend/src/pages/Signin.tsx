@@ -13,10 +13,13 @@ function Signin() {
     username: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   async function handlePostRequest() {
+    
     try {
+      setLoading(true);
       const response = await axios.post(
         `${BACKEND_URL}/api/v1/user/signin`,
         signinInputData
@@ -41,7 +44,7 @@ function Signin() {
         localStorage.setItem("token", "Bearer " + token);
 
        
-       
+      
 
           // artificial delay for toster notification
        setTimeout(()=>{
@@ -50,6 +53,7 @@ function Signin() {
       }
 
     } catch (error) {
+      setLoading(false);
       toast.error('Invalid credentials', {
         position: "bottom-right",
         autoClose: 5000,
@@ -101,7 +105,9 @@ function Signin() {
                     });
                   }}
                 />
-                <Button sendRequest={handlePostRequest} type="signin" />
+               <div>
+               <Button Loading={loading}  sendRequest={handlePostRequest} type="signin" />
+               </div>
                 {/* toaster container */}
                 <ToastContainer
 position="bottom-right"

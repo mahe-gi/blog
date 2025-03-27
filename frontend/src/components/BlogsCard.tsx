@@ -13,7 +13,7 @@ function BlogCard({
   authorName,
   title,
   content,
-  publishedDate,
+  // publishedDate,
 }: BlogCardProps) {
   return (
     <Link to={`/blog/${id}`}>

@@ -10,7 +10,7 @@ export const Quote = ({ type }: { type: "signup" | "signin" }) => {
       </div>
       <div className=" mt-8">
         <h5 className=" text-md font-semibold capitalize">ch mahesh</h5>
-        <p className=" text-sm text-gray-400">founder & ceo , 101dev inc</p>
+        <p className=" text-sm text-gray-400">101dev</p>
       </div>
     </div>
   );

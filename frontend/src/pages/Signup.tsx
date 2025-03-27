@@ -14,12 +14,13 @@ function Signup() {
     password: "",
     name: "",
   });
+  const[loading,setLoading] = useState(false);
   const navigate = useNavigate();
 
   async function handlePostSignup() {
    
     try {
-      
+      setLoading(true);
       const response = await axios.post(
         `${BACKEND_URL}/api/v1/user/signup`,
         postSignupData
@@ -50,6 +51,7 @@ function Signup() {
         localStorage.setItem("token", "Bearer " + token);
       }
     } catch (error) {
+      setLoading(false);
       toast.error('Something went wrong !', {
         position: "bottom-right",
         autoClose: 5000,
@@ -111,7 +113,7 @@ function Signup() {
                     });
                   }}
                 />
-                <Button sendRequest={handlePostSignup} type="signup" />
+                <Button Loading={loading} sendRequest={handlePostSignup} type="signup" />
                 <ToastContainer
                   position="bottom-right"
                   autoClose={5000}
