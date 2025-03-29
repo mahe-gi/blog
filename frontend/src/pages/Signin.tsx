@@ -17,7 +17,6 @@ function Signin() {
 
   const navigate = useNavigate();
   async function handlePostRequest() {
-    
     try {
       setLoading(true);
       const response = await axios.post(
@@ -25,11 +24,9 @@ function Signin() {
         signinInputData
       );
       if (response.status === 200) {
+        //toster notification
 
-
-         //toster notification
-         
-        toast.success('Welcome back !', {
+        toast.success("Welcome back !", {
           position: "bottom-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -39,22 +36,18 @@ function Signin() {
           progress: undefined,
           theme: "colored",
           transition: Bounce,
-          });
+        });
         const token = response.data.token;
         localStorage.setItem("token", "Bearer " + token);
 
-       
-      
-
-          // artificial delay for toster notification
-       setTimeout(()=>{
-        navigate("/blogs");
-       },500)
+        // artificial delay for toster notification
+        setTimeout(() => {
+          navigate("/blogs");
+        }, 500);
       }
-
     } catch (error) {
       setLoading(false);
-      toast.error('Invalid credentials', {
+      toast.error("Invalid credentials", {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -64,7 +57,7 @@ function Signin() {
         progress: undefined,
         theme: "colored",
         transition: Bounce,
-        });
+      });
       console.log(error);
     }
   }
@@ -74,13 +67,6 @@ function Signin() {
         <div className=" flex  items-center justify-center h-screen">
           <div className=" w-96 mx-auto">
             <h2 className=" text-3xl font-bold">Welcome Back !</h2>
-            <p className=" text-gray-400 mt-4">
-              Dont have an account ?
-              <Link to="/signup" className=" underline text-gray-500">
-                Sign up
-              </Link>
-            </p>{" "}
-            <p></p>
             <form className=" mt-8">
               <div className=" space-y-4">
                 <LabeledInput
@@ -105,23 +91,33 @@ function Signin() {
                     });
                   }}
                 />
-               <div>
-               <Button Loading={loading}  sendRequest={handlePostRequest} type="signin" />
-               </div>
+                <div>
+                  <Button
+                    Loading={loading}
+                    sendRequest={handlePostRequest}
+                    type="signin"
+                  />
+                  <p className=" text-gray-400 mt-8 text-center ">
+                    Dont have an account ?
+                    <Link to="/signup" className=" underline text-gray-500">
+                      Sign up
+                    </Link>
+                  </p>{" "}
+                </div>
                 {/* toaster container */}
                 <ToastContainer
-position="bottom-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick={false}
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="colored"
-transition={Bounce}
-/>
+                  position="bottom-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick={false}
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="colored"
+                  transition={Bounce}
+                />
               </div>
             </form>
           </div>

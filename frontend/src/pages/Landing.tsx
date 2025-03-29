@@ -81,7 +81,7 @@ function Landing() {
   return (
     <div className=" flex items-center justify-center h-screen w-screen">
       <div>
-        <div>Redirecting ...</div>
+        <div>Redirecting ... <span className=" h-4 w-4 rounded-full border-b-2 border-blue-700 "> </span></div>
         <ToastContainer/>
       </div>
     </div>

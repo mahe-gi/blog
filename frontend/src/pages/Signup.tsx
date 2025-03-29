@@ -14,11 +14,10 @@ function Signup() {
     password: "",
     name: "",
   });
-  const[loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   async function handlePostSignup() {
-   
     try {
       setLoading(true);
       const response = await axios.post(
@@ -26,33 +25,30 @@ function Signup() {
         postSignupData
       );
       const token = await response.data.token;
-     
-     if(token){
-      toast.success('Success !', {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-        });
 
-     }
+      if (token) {
+        toast.success("Success !", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      }
       setTimeout(() => {
-        
         navigate(`/blogs`);
       }, 500);
-      
-    
+
       if (token) {
         localStorage.setItem("token", "Bearer " + token);
       }
     } catch (error) {
       setLoading(false);
-      toast.error('Something went wrong !', {
+      toast.error("Something went wrong !", {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -62,7 +58,7 @@ function Signup() {
         progress: undefined,
         theme: "colored",
         transition: Bounce,
-        });
+      });
     }
   }
 
@@ -72,12 +68,6 @@ function Signup() {
         <div className=" flex  items-center justify-center h-screen">
           <div className=" w-96 mx-auto">
             <h2 className=" text-3xl font-bold">Create An Account !</h2>
-            <p className=" text-gray-400 mt-4">
-              Already have an account ?
-              <Link to="/signin" className=" underline text-gray-500">
-                Sign in
-              </Link>
-            </p>
             <form className=" mt-8">
               <div className=" space-y-4">
                 <LabeledInput
@@ -113,7 +103,17 @@ function Signup() {
                     });
                   }}
                 />
-                <Button Loading={loading} sendRequest={handlePostSignup} type="signup" />
+                <Button
+                  Loading={loading}
+                  sendRequest={handlePostSignup}
+                  type="signup"
+                />
+                <p className=" text-gray-400 mt-8 text-center">
+                  Already have an account ?
+                  <Link to="/signin" className=" underline text-gray-500 hover:text-green-900">
+                    Sign in
+                  </Link>
+                </p>
                 <ToastContainer
                   position="bottom-right"
                   autoClose={5000}
