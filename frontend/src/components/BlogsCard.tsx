@@ -28,7 +28,7 @@ function BlogCard({
           {/* <div>{publishedDate}</div> */}
         </div>
 
-        <div className=" text-2xl font-bold  capitalize pt-2">{title}</div>
+        <div className="  text-gray-800 text-2xl font-bold  capitalize pt-2">{title}</div>
         <div className="font-light text-[#6b6b6b] overflow-hidden text-ellipsis break-words ">
           {content.length > 200
             ? content.slice(0, 200) + "..."
