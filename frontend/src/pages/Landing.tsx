@@ -11,7 +11,7 @@ function Landing() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      toast.error('please Login !', {
+      toast.error('Please Login !', {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -23,7 +23,7 @@ function Landing() {
         transition: Bounce,
         });
       setTimeout(()=>{
-        navigate("/signin");
+        navigate("/signup");
       }, 2500);
       return;
     }
@@ -82,7 +82,7 @@ function Landing() {
     <div className=" flex items-center justify-center h-screen w-screen">
       <div>
         <div>Redirecting ... <span className=" h-4 w-4 rounded-full border-b-2 border-blue-700 "> </span></div>
-        <ToastContainer/>
+        <ToastContainer />
       </div>
     </div>
   );
