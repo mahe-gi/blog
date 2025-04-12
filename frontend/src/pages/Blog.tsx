@@ -14,7 +14,7 @@ function Blog() {
     return (
       <div>
         <Appbar val={false} />
-        <BlogSkeleton/> 
+        <BlogSkeleton />
       </div>
     );
   }
@@ -24,7 +24,6 @@ function Blog() {
       <Appbar val={false} />
       <div className=" max-h-max p-4 lg:p-10 gap-4 ">
         <div>{blog && <BlogsCardLeft blog={blog} />}</div>
-      
       </div>
     </div>
   );
