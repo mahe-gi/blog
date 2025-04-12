@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Appbar } from "../components/Appbar";
 import axios from "axios";
-import { BACKEND_URL } from "../config";
 import { useNavigate } from "react-router";
 
 function Publish() {
@@ -10,7 +9,7 @@ function Publish() {
   const navigate = useNavigate();
   async function handleBlogPublish() {
     const response = await axios.post(
-      `${BACKEND_URL}/api/v1/blog`,
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/blog`,
       {
         title: title,
         content: content,

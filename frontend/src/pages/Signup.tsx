@@ -6,7 +6,6 @@ import axios from "axios";
 import { Link } from "react-router";
 import { LabeledInput } from "../components/LabeledInput";
 import { useNavigate } from "react-router";
-import { BACKEND_URL } from "../config";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 function Signup() {
   const [postSignupData, setPostSignupData] = useState<SignupInput>({
@@ -18,10 +17,11 @@ function Signup() {
   const navigate = useNavigate();
 
   async function handlePostSignup() {
+    console.log(import.meta.env.VITE_BACKEND_URL);
     try {
       setLoading(true);
       const response = await axios.post(
-        `${BACKEND_URL}/api/v1/user/signup`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/user/signup`,
         postSignupData
       );
       const token = await response.data.token;
@@ -110,7 +110,10 @@ function Signup() {
                 />
                 <p className=" text-gray-400 mt-8 text-center">
                   Already have an account ?
-                  <Link to="/signin" className=" underline text-gray-500 hover:text-green-900">
+                  <Link
+                    to="/signin"
+                    className=" underline text-gray-500 hover:text-green-900"
+                  >
                     Sign in
                   </Link>
                 </p>

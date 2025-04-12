@@ -7,6 +7,8 @@
     "@mahe-npm/common": "^1.0.2",
     "@prisma/client": "^6.3.1",
     "@prisma/extension-accelerate": "^1.2.2",
+    "@types/bcrypt": "^5.0.2",
+    "bcryptjs": "^3.0.2",
     "hono": "^4.0.8",
     "prisma": "^6.4.0"
   },

@@ -6,7 +6,6 @@ import { useNavigate } from "react-router";
 import axios from "axios";
 import { Button } from "../components/Button";
 import { LabeledInput } from "../components/LabeledInput";
-import { BACKEND_URL } from "../config";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 function Signin() {
   const [signinInputData, setsigninInputData] = useState<SigninInput>({
@@ -20,7 +19,7 @@ function Signin() {
     try {
       setLoading(true);
       const response = await axios.post(
-        `${BACKEND_URL}/api/v1/user/signin`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/user/signin`,
         signinInputData
       );
       if (response.status === 200) {

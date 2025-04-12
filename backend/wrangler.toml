@@ -2,8 +2,8 @@ name = "backend_cloudflare_worker"
 compatibility_date = "2023-12-01"
 
 [vars]
-DATABASE_URL="your db url connectionpool"
-JWT_SECRET="your secret"
+DATABASE_URL="your connectionpool db url"
+JWT_SECRET="yout jwt secret "
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
 # id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"

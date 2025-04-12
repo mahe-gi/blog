@@ -1,8 +1,9 @@
 import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate";
-import { sign,verify } from "hono/jwt";
+import { sign, verify } from "hono/jwt";
 import { Hono } from "hono";
 import { signinInput, signupInput } from "@mahe-npm/common";
+import bcrypt from "bcryptjs";
 
 export const userRouter = new Hono<{
   Bindings: {
@@ -11,23 +12,23 @@ export const userRouter = new Hono<{
   };
 }>();
 
-
 userRouter.post("/signup", async (c) => {
-
   const reqData = await c.req.json();
   const { success } = signupInput.safeParse(reqData);
   if (!success) {
     c.status(400);
     return c.json({ message: "Invalid input" });
   }
+  const hashedPassword = await bcrypt.hash(reqData.password, 10);
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());
+
   try {
     const user = await prisma.user.create({
       data: {
         username: reqData.username,
-        password: reqData.password,
+        password: hashedPassword,
         name: reqData.name,
       },
     });
@@ -41,9 +42,8 @@ userRouter.post("/signup", async (c) => {
 });
 userRouter.post("/signin", async (c) => {
   const reqData = await c.req.json();
-
+  console.log(reqData.password + " user data 1");
   const { success } = signinInput.safeParse(reqData);
-
   if (!success) {
     c.status(400);
     return c.json({ message: "Invalid Signin  input " });
@@ -56,11 +56,16 @@ userRouter.post("/signin", async (c) => {
   const user = await prisma.user.findFirst({
     where: {
       username: reqData.username,
-      password: reqData.password,
     },
   });
 
   if (!user) {
+    c.status(401);
+    return c.json({ message: "Invalid username or password" });
+  }
+  const comparehash = await bcrypt.compare(reqData.password, user.password);
+  console.log(comparehash + " comparing hash");
+  if (!comparehash) {
     c.status(401);
     return c.json({ message: "Invalid username or password" });
   }
@@ -79,23 +84,13 @@ userRouter.post("/me", async (c) => {
 
   const { id } = await verify(originalToken, c.env.JWT_SECRET);
 
-
-
   if (!id) {
     c.status(401);
     return c.json({ err: "Invalid token" });
   }
 
-  
   c.status(200);
   return c.json({
-    id:id
-  })
-
-
-
-
-
-
-}
-);
+    id: id,
+  });
+});
