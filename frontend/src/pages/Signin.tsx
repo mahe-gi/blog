@@ -9,8 +9,8 @@ import { LabeledInput } from "../components/LabeledInput";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 function Signin() {
   const [signinInputData, setsigninInputData] = useState<SigninInput>({
-    username: "admin",
-    password: "admin",
+    username: " ",
+    password: " ",
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -67,7 +67,7 @@ function Signin() {
             <h2 className=" text-3xl font-bold">Welcome Back !</h2>
             <form className=" mt-8">
               <div className=" space-y-4">
-                <LabeledInput 
+                <LabeledInput
                   type="email"
                   label="email"
                   placeholder="Name"
