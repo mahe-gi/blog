@@ -65,9 +65,11 @@ function Signup() {
   return (
     <div className=" h-screen">
       <div className="">
-        <div className=" flex  items-center justify-center h-screen">
-          <div className=" w-96 mx-auto">
-            <h2 className=" text-3xl font-bold">Create An Account !</h2>
+        <div className=" flex  items-center justify-center h-screen ">
+          <div className=" w-96 mx-auto  p-8 rounded-xl shadow-md hover:shadow-xl">
+            <h2 className=" text-3xl font-bold text-gray-700">
+              Create An Account !
+            </h2>
             <form className=" mt-8">
               <div className=" space-y-4">
                 <LabeledInput
@@ -109,7 +111,7 @@ function Signup() {
                   type="signup"
                 />
                 <p className=" text-gray-400 mt-8 text-center">
-                  Already have an account ?
+                  Already have an account ? <span> </span>
                   <Link
                     to="/signin"
                     className=" underline text-gray-500 hover:text-green-900"

@@ -63,8 +63,10 @@ function Signin() {
     <div className=" h-screen">
       <div className="">
         <div className=" flex  items-center justify-center h-screen">
-          <div className=" w-96 mx-auto">
-            <h2 className=" text-3xl font-bold">Welcome Back !</h2>
+          <div className=" w-96 mx-auto  p-8 rounded-xl shadow-md hover:shadow-xl">
+            <h2 className=" text-3xl font-bold text-gray-700">
+              Welcome Back !
+            </h2>
             <form className=" mt-8">
               <div className=" space-y-4">
                 <LabeledInput
@@ -95,8 +97,8 @@ function Signin() {
                     sendRequest={handlePostRequest}
                     type="signin"
                   />
-                  <p className=" text-gray-400 mt-8 text-center ">
-                    Dont have an account ?
+                  <p className=" text-gray-400 mt-8 text-center">
+                    Dont have an account ? <span> </span>
                     <Link to="/signup" className=" underline text-gray-500">
                       Sign up
                     </Link>
