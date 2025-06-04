@@ -1,5 +1,5 @@
 import { Button } from "../components/Button";
-import { Quote } from "../components/Quote";
+// import { Quote } from "../components/Quote";
 import { SignupInput } from "@mahe-npm/common";
 import { useState } from "react";
 import axios from "axios";

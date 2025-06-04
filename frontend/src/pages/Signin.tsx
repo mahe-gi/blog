@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Quote } from "../components/Quote";
+// import { Quote } from "../components/Quote";
 import { useState } from "react";
 import { SigninInput } from "@mahe-npm/common";
 import { useNavigate } from "react-router";
@@ -121,9 +121,9 @@ function Signin() {
           </div>
         </div>
       </div>
-      <div className=" hidden lg:block">
+      {/* <div className=" hidden lg:block">
         <Quote type="signin" />
-      </div>
+      </div> */}
     </div>
   );
 }
