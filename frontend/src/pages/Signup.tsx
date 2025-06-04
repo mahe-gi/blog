@@ -9,9 +9,9 @@ import { useNavigate } from "react-router";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 function Signup() {
   const [postSignupData, setPostSignupData] = useState<SignupInput>({
-    username: " ",
-    password: " ",
-    name: " ",
+    username: "",
+    password: "",
+    name: "",
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();

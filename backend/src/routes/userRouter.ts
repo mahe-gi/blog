@@ -42,7 +42,10 @@ userRouter.post("/signup", async (c) => {
 });
 userRouter.post("/signin", async (c) => {
   const reqData = await c.req.json();
-  console.log(reqData.password + " user data 1");
+  if (!reqData.username || !reqData.password) {
+    c.status(400);
+    return c.json({ msg: "empty data" });
+  }
   const { success } = signinInput.safeParse(reqData);
   if (!success) {
     c.status(400);

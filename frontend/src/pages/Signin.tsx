@@ -9,8 +9,8 @@ import { LabeledInput } from "../components/LabeledInput";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 function Signin() {
   const [signinInputData, setsigninInputData] = useState<SigninInput>({
-    username: " ",
-    password: " ",
+    username: "",
+    password: "",
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
