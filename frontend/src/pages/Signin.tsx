@@ -60,7 +60,7 @@ function Signin() {
     }
   }
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 h-screen">
+    <div className=" h-screen">
       <div className="">
         <div className=" flex  items-center justify-center h-screen">
           <div className=" w-96 mx-auto">

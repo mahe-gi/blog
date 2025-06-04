@@ -9,9 +9,9 @@ import { useNavigate } from "react-router";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 function Signup() {
   const [postSignupData, setPostSignupData] = useState<SignupInput>({
-    username: "",
-    password: "",
-    name: "",
+    username: " ",
+    password: " ",
+    name: " ",
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -63,7 +63,7 @@ function Signup() {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 h-screen">
+    <div className=" h-screen">
       <div className="">
         <div className=" flex  items-center justify-center h-screen">
           <div className=" w-96 mx-auto">
@@ -135,9 +135,9 @@ function Signup() {
           </div>
         </div>
       </div>
-      <div className=" hidden lg:block">
+      {/* <div className=" hidden lg:block">
         <Quote type="signup" />
-      </div>
+      </div> */}
     </div>
   );
 }
