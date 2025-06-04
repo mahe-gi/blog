@@ -14,6 +14,10 @@ export const userRouter = new Hono<{
 
 userRouter.post("/signup", async (c) => {
   const reqData = await c.req.json();
+  if (!reqData.username || !reqData.password) {
+    c.status(400);
+    return c.json({ msg: "empty data" });
+  }
   const { success } = signupInput.safeParse(reqData);
   if (!success) {
     c.status(400);
