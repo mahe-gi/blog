@@ -17,7 +17,7 @@ function Signup() {
   const navigate = useNavigate();
 
   async function handlePostSignup() {
-    console.log(import.meta.env.VITE_BACKEND_URL);
+    // console.log(import.meta.env.VITE_BACKEND_URL);
     try {
       setLoading(true);
       const response = await axios.post(
@@ -63,7 +63,7 @@ function Signup() {
   }
 
   return (
-    <div className=" h-screen">
+    <div className=" h-screen bg-[#fdfdfd]">
       <div className="">
         <div className=" flex  items-center justify-center h-screen ">
           <div className=" w-96 mx-auto  p-8 rounded-xl shadow-md hover:shadow-xl">

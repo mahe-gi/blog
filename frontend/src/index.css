@@ -1,9 +1,7 @@
 @import "tailwindcss";
 
-
-
 @layer utilities {
-    .text-primary {
-        color: #6b6b6b;
-    }
+  .text-primary {
+    color: #a7a7a7;
+  }
 }
